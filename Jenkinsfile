@@ -35,7 +35,9 @@ pipeline {
 
     post {
         always {
-            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            echo 'PyTest execution finished.'
+            // Re-enable allure once Allure Jenkins Plugin is installed under Manage Jenkins -> Plugins
+            // allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
         }
     }
 }
