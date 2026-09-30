@@ -11,16 +11,13 @@ if str(PROJECT_ROOT) not in sys.path:
 import config.config as config
 
 
-MYSQL_JAR_PATH = r"C:\Users\Plabani\Downloads\mysql-connector-j-9.4.0.jar"
-
-
 def create_spark_session():
     """Creates and returns a SparkSession with MySQL JDBC driver attached."""
     spark = (
         SparkSession.builder
         .appName("Customer ETL Pytest Framework")
         .master("local[*]")
-        .config("spark.jars", MYSQL_JAR_PATH)
+        .config("spark.jars.packages", "com.mysql:mysql-connector-j:9.4.0")
         .getOrCreate()
     )
     return spark
